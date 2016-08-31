@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="auth_server_token_endpoint">connect/token</string>
+  <string name="auth_server_userinfo_endpoint">connect/userinfo</string>
+  <string name="auth_server_introspection_endpoint">connect/introspect</string>
+  <string name="auth_server_logout_endpoint">connect/logout</string>
+</resources>
