@@ -1,0 +1,6 @@
+packages/**
+.vs/**
+ThriftPay.Mobile/**/obj
+ThriftPay.Mobile/**/bin
+ThriftPay.Mobile/**/*.user
+ThriftPay.Mobile/**/**.user
