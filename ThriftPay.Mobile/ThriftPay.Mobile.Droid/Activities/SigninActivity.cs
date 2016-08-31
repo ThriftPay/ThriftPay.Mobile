@@ -54,7 +54,7 @@ namespace ThriftPay.Mobile.Droid.Activities
             {
                 try
                 {
-                    await authService.GetTokenAsync(editTextPassword.Text, editTextPassword.Text);
+                    await authService.GetTokenAsync(editTextUsername.Text, editTextPassword.Text);
 
                     StartActivity(typeof(MainActivity));
 
@@ -64,13 +64,13 @@ namespace ThriftPay.Mobile.Droid.Activities
                 {
                     Log.Debug(LOG_TAG, ex.Message);
 
-                    Toast.MakeText(this, "Invalid username or password.", ToastLength.Short).Show();
+                    Toast.MakeText(this, App.Container.Resolve<Context>().GetString(Resource.String.signin_invalid_username_or_password), ToastLength.Short).Show();
                 }
                 catch (Exception ex)
                 {
                     Log.Debug(LOG_TAG, ex.Message);
 
-                    Toast.MakeText(this, "Unable to login at this time. Try again later.", ToastLength.Short).Show();
+                    Toast.MakeText(this, App.Container.Resolve<Context>().GetString(Resource.String.signin_exception), ToastLength.Short).Show();
                 }
             };
 

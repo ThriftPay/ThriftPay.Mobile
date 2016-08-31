@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">Thrift Pay</string>
+  
+  <string name="signin_exception">Unable to sign in at this time. Try again later.</string>
+  <string name="signin_invalid_username_or_password">Invalid username or password.</string>
+  
+  <string name="signup_exception">Unable to sign up at this time. Try again later.</string>
 </resources>

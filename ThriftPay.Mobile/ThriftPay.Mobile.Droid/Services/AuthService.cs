@@ -5,6 +5,7 @@ using Android.Util;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ThriftPay.Mobile.Droid.Models;
+using System;
 
 namespace ThriftPay.Mobile.Droid.Services
 {
@@ -52,6 +53,49 @@ namespace ThriftPay.Mobile.Droid.Services
             return baseUrl + url;
         }
 
+        public async Task<UserModel> SignupAsync(SignupModel model)
+        {
+            try
+            {
+                var data = new Dictionary<string, string>() {
+                    {"username", model.Username},
+                    {"password", model.Password}
+                };
+
+                var url = this.GetAbsoluteUrl(Context.GetString(Resource.String.auth_server_signup_endpoint));
+
+                var response = await this.HttpUtility.PostAsync(url, data);
+
+                var responseText = await response.Content.ReadAsStringAsync();
+
+                Log.Debug(LOG_TAG, responseText);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var userModel = JsonConvert.DeserializeObject<UserModel>(responseText);
+
+                    return userModel;
+                }
+                else
+                {
+                    var errorData = JsonConvert.DeserializeObject<ErrorModel>(responseText);
+
+                    if (errorData == null)
+                    {
+                        errorData = new ErrorModel(response.StatusCode.ToString());
+                    }
+
+                    throw new ApiException($"{errorData.Error}: {errorData.ErrorDescription}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(LOG_TAG, ex.Message);
+
+                throw ex;
+            }
+        }
+
         public async Task GetTokenAsync(string username, string password)
         {
             var url = this.GetAbsoluteUrl(Context.GetString(Resource.String.auth_server_token_endpoint));
@@ -59,7 +103,7 @@ namespace ThriftPay.Mobile.Droid.Services
             var data = new Dictionary<string, string>() {
                 {"grant_type", "password"},
                 {"client_id", this.ClientId },
-                {"client_secret", this.ClientSecret },
+                //{"client_secret", this.ClientSecret },// Don't send secret for now
                 {"username", username },
                 {"password", password },
                 {"scope", "openid offline_access profile email"}
@@ -102,10 +146,17 @@ namespace ThriftPay.Mobile.Droid.Services
                 }
                 else
                 {
-                    throw new AuthenticationException("Invalid grant");
+                    var errorData = JsonConvert.DeserializeObject<ErrorModel>(responseContent);
+
+                    if (errorData == null)
+                    {
+                        errorData = new ErrorModel(response.StatusCode.ToString());
+                    }
+
+                    throw new AuthenticationException($"{errorData.Error}: {errorData.ErrorDescription}");
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Log.Error(LOG_TAG, ex.Message);
 
@@ -119,7 +170,7 @@ namespace ThriftPay.Mobile.Droid.Services
 
             var refreshToken = this.GetRefreshToken();
 
-            if(string.IsNullOrEmpty(refreshToken))
+            if (string.IsNullOrEmpty(refreshToken))
             {
                 throw new AuthenticationException("No refresh token was found in storage.");
             }
@@ -168,10 +219,17 @@ namespace ThriftPay.Mobile.Droid.Services
                 }
                 else
                 {
-                    throw new AuthenticationException("Invalid grant");
+                    var errorData = JsonConvert.DeserializeObject<ErrorModel>(responseContent);
+
+                    if (errorData == null)
+                    {
+                        errorData = new ErrorModel(response.StatusCode.ToString());
+                    }
+
+                    throw new AuthenticationException($"{errorData.Error}: {errorData.ErrorDescription}");
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 Log.Debug(LOG_TAG, ex.Message);
 

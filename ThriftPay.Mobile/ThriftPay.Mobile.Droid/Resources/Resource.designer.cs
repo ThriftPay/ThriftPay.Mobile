@@ -2534,14 +2534,14 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f080012
 			public const int abc_toolbar_collapse_description = 2131230738;
 			
+			// aapt resource value: 0x7f080017
+			public const int api_base_url = 2131230743;
+			
 			// aapt resource value: 0x7f080018
-			public const int api_base_url = 2131230744;
+			public const int api_version = 2131230744;
 			
-			// aapt resource value: 0x7f080019
-			public const int api_version = 2131230745;
-			
-			// aapt resource value: 0x7f080022
-			public const int app_name = 2131230754;
+			// aapt resource value: 0x7f080021
+			public const int app_name = 2131230753;
 			
 			// aapt resource value: 0x7f080014
 			public const int appbar_scrolling_view_behavior = 2131230740;
@@ -2555,17 +2555,20 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f080020
 			public const int auth_server_client_secret = 2131230752;
 			
+			// aapt resource value: 0x7f08001b
+			public const int auth_server_introspection_endpoint = 2131230747;
+			
 			// aapt resource value: 0x7f08001c
-			public const int auth_server_introspection_endpoint = 2131230748;
+			public const int auth_server_logout_endpoint = 2131230748;
 			
 			// aapt resource value: 0x7f08001d
-			public const int auth_server_logout_endpoint = 2131230749;
+			public const int auth_server_signup_endpoint = 2131230749;
+			
+			// aapt resource value: 0x7f080019
+			public const int auth_server_token_endpoint = 2131230745;
 			
 			// aapt resource value: 0x7f08001a
-			public const int auth_server_token_endpoint = 2131230746;
-			
-			// aapt resource value: 0x7f08001b
-			public const int auth_server_userinfo_endpoint = 2131230747;
+			public const int auth_server_userinfo_endpoint = 2131230746;
 			
 			// aapt resource value: 0x7f080015
 			public const int bottom_sheet_behavior = 2131230741;
@@ -2573,11 +2576,14 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f080016
 			public const int character_counter_pattern = 2131230742;
 			
-			// aapt resource value: 0x7f080021
-			public const int hello = 2131230753;
+			// aapt resource value: 0x7f080022
+			public const int signin_exception = 2131230754;
 			
-			// aapt resource value: 0x7f080017
-			public const int signup_endpoint = 2131230743;
+			// aapt resource value: 0x7f080023
+			public const int signin_invalid_username_or_password = 2131230755;
+			
+			// aapt resource value: 0x7f080024
+			public const int signup_exception = 2131230756;
 			
 			// aapt resource value: 0x7f080013
 			public const int status_bar_notification_info_overflow = 2131230739;

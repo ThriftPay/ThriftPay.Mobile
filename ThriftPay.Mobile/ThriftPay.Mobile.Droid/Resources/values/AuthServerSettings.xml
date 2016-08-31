@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <string name="auth_server_base_url">http://account.thriftpay.co</string>
-  <string name="auth_server_client_id"></string>
-  <string name="auth_server_client_secret"></string>
+  <string name="auth_server_client_id">android</string>
+  <string name="auth_server_client_secret">secret_secret_secret</string>
 </resources>

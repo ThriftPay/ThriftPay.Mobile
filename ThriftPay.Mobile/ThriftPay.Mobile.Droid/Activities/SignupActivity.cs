@@ -27,8 +27,6 @@ namespace ThriftPay.Mobile.Droid.Activities
 
             SetContentView(Resource.Layout.Signup);
 
-            var userService = App.Container.Resolve<UserService>();
-
             var editTextUsername = FindViewById<EditText>(Resource.Id.editTextUsername);
             var editTextPassword = FindViewById<EditText>(Resource.Id.editTextPassword);
 
@@ -36,43 +34,50 @@ namespace ThriftPay.Mobile.Droid.Activities
 
             buttonSignupSubmit.Click += async (sender, args) =>
             {
+                var authService = App.Container.Resolve<AuthService>();
+
                 var model = new SignupModel()
                 {
-                    Username = editTextUsername.Text,
-                    Password = editTextPassword.Text,
+                    Username = editTextUsername.Text.Trim().ToLower(),
+                    Password = editTextPassword.Text.Trim(),
                 };
 
                 try
                 {
-                    await userService.SignupAsync(model);
-
-                    var authService = App.Container.Resolve<AuthService>();
+                    var userModel = await authService.SignupAsync(model);
 
                     try
                     {
                         await authService.GetTokenAsync(model.Username, model.Password);
 
                         StartActivity(typeof(MainActivity));
-
-                    }catch(Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         Log.Debug(LOG_TAG, ex.Message);
 
                         var intent = new Intent(this, typeof(SigninActivity));
 
-                        intent.PutExtra("username", "");
-                        intent.PutExtra("password", "");
+                        intent.PutExtra("username", model.Username);
+                        intent.PutExtra("password", model.Password);
 
                         StartActivity(intent);
                     }
 
                     Finish();
+
+                }
+                catch (ApiException ex)
+                {
+                    Log.Debug(LOG_TAG, ex.Message);
+
+                    Toast.MakeText(this, ex.Message, ToastLength.Short).Show();
                 }
                 catch (Exception ex)
                 {
                     Log.Debug(LOG_TAG, ex.Message);
 
-                    Toast.MakeText(this, "Unable to sign up at this time. Try again later.", ToastLength.Short).Show();
+                    Toast.MakeText(this, App.Container.Resolve<Context>().GetString(Resource.String.signup_exception), ToastLength.Short).Show();
                 }
             };
 

@@ -15,6 +15,17 @@ namespace ThriftPay.Mobile.Droid.Models
 {
     public class ErrorModel
     {
+        public ErrorModel(string error, string errorDescription = null)
+        {
+            Error = error;
+            ErrorDescription = ErrorDescription;
+        }
+
+        public ErrorModel()
+        {
+
+        }
+
         [JsonProperty("error")]
         public string Error { get; set; }
 

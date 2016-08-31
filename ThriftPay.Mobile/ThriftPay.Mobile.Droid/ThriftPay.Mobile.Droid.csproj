@@ -92,7 +92,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\ApiException.cs" />
-    <Compile Include="Services\ApiResponse.cs" />
     <Compile Include="Services\AuthenticationException.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\ApiService.cs" />
