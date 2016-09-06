@@ -13,11 +13,12 @@ using ThriftPay.Mobile.Droid.Services;
 using Autofac;
 using ThriftPay.Mobile.Droid.Models;
 using Android.Util;
+using Android.Support.V7.App;
 
 namespace ThriftPay.Mobile.Droid.Activities
 {
     [Activity(Label = "Sign up")]
-    public class SignupActivity : Activity
+    public class SignupActivity : AppCompatActivity
     {
         const string LOG_TAG = "SignupActivity";
 
@@ -34,7 +35,7 @@ namespace ThriftPay.Mobile.Droid.Activities
 
             buttonSignupSubmit.Click += async (sender, args) =>
             {
-                var authService = App.Container.Resolve<AuthService>();
+                var accountService = App.Container.Resolve<AccountService>();
 
                 var model = new SignupModel()
                 {
@@ -44,11 +45,11 @@ namespace ThriftPay.Mobile.Droid.Activities
 
                 try
                 {
-                    var userModel = await authService.SignupAsync(model);
+                    var userModel = await accountService.SignupAsync(model);
 
                     try
                     {
-                        await authService.GetTokenAsync(model.Username, model.Password);
+                        await accountService.GetTokenAsync(model.Username, model.Password);
 
                         StartActivity(typeof(MainActivity));
                     }

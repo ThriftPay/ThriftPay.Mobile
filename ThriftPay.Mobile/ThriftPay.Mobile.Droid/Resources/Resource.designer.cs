@@ -988,32 +988,32 @@ namespace ThriftPay.Mobile.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c004a
-			public const int abc_background_cache_hint_selector_material_dark = 2131492938;
-			
 			// aapt resource value: 0x7f0c004b
-			public const int abc_background_cache_hint_selector_material_light = 2131492939;
+			public const int abc_background_cache_hint_selector_material_dark = 2131492939;
 			
 			// aapt resource value: 0x7f0c004c
-			public const int abc_color_highlight_material = 2131492940;
+			public const int abc_background_cache_hint_selector_material_light = 2131492940;
+			
+			// aapt resource value: 0x7f0c004d
+			public const int abc_color_highlight_material = 2131492941;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int abc_input_method_navigation_guard = 2131492864;
 			
-			// aapt resource value: 0x7f0c004d
-			public const int abc_primary_text_disable_only_material_dark = 2131492941;
-			
 			// aapt resource value: 0x7f0c004e
-			public const int abc_primary_text_disable_only_material_light = 2131492942;
+			public const int abc_primary_text_disable_only_material_dark = 2131492942;
 			
 			// aapt resource value: 0x7f0c004f
-			public const int abc_primary_text_material_dark = 2131492943;
+			public const int abc_primary_text_disable_only_material_light = 2131492943;
 			
 			// aapt resource value: 0x7f0c0050
-			public const int abc_primary_text_material_light = 2131492944;
+			public const int abc_primary_text_material_dark = 2131492944;
 			
 			// aapt resource value: 0x7f0c0051
-			public const int abc_search_url_text = 2131492945;
+			public const int abc_primary_text_material_light = 2131492945;
+			
+			// aapt resource value: 0x7f0c0052
+			public const int abc_search_url_text = 2131492946;
 			
 			// aapt resource value: 0x7f0c0001
 			public const int abc_search_url_text_normal = 2131492865;
@@ -1024,11 +1024,11 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f0c0003
 			public const int abc_search_url_text_selected = 2131492867;
 			
-			// aapt resource value: 0x7f0c0052
-			public const int abc_secondary_text_material_dark = 2131492946;
-			
 			// aapt resource value: 0x7f0c0053
-			public const int abc_secondary_text_material_light = 2131492947;
+			public const int abc_secondary_text_material_dark = 2131492947;
+			
+			// aapt resource value: 0x7f0c0054
+			public const int abc_secondary_text_material_light = 2131492948;
 			
 			// aapt resource value: 0x7f0c0046
 			public const int accent = 2131492934;
@@ -1228,11 +1228,11 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f0c0037
 			public const int switch_thumb_disabled_material_light = 2131492919;
 			
-			// aapt resource value: 0x7f0c0054
-			public const int switch_thumb_material_dark = 2131492948;
-			
 			// aapt resource value: 0x7f0c0055
-			public const int switch_thumb_material_light = 2131492949;
+			public const int switch_thumb_material_dark = 2131492949;
+			
+			// aapt resource value: 0x7f0c0056
+			public const int switch_thumb_material_light = 2131492950;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int switch_thumb_normal_material_dark = 2131492920;
@@ -1242,6 +1242,9 @@ namespace ThriftPay.Mobile.Droid
 			
 			// aapt resource value: 0x7f0c0049
 			public const int tableSectionHeaderText = 2131492937;
+			
+			// aapt resource value: 0x7f0c004a
+			public const int white = 2131492938;
 			
 			// aapt resource value: 0x7f0c0048
 			public const int window_background = 2131492936;
@@ -1846,8 +1849,8 @@ namespace ThriftPay.Mobile.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070072
-			public const int action0 = 2131165298;
+			// aapt resource value: 0x7f070073
+			public const int action0 = 2131165299;
 			
 			// aapt resource value: 0x7f07005a
 			public const int action_bar = 2131165274;
@@ -1873,8 +1876,8 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f07005b
 			public const int action_context_bar = 2131165275;
 			
-			// aapt resource value: 0x7f070076
-			public const int action_divider = 2131165302;
+			// aapt resource value: 0x7f070077
+			public const int action_divider = 2131165303;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -1909,20 +1912,26 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f070044
 			public const int buttonPanel = 2131165252;
 			
-			// aapt resource value: 0x7f070081
-			public const int buttonSigninSubmit = 2131165313;
-			
 			// aapt resource value: 0x7f070083
-			public const int buttonSignupSubmit = 2131165315;
-			
-			// aapt resource value: 0x7f070084
-			public const int buttonStartSignin = 2131165316;
+			public const int buttonSigninHelp = 2131165315;
 			
 			// aapt resource value: 0x7f070082
-			public const int buttonStartSignup = 2131165314;
+			public const int buttonSigninSubmit = 2131165314;
 			
-			// aapt resource value: 0x7f070073
-			public const int cancel_action = 2131165299;
+			// aapt resource value: 0x7f070072
+			public const int buttonSignout = 2131165298;
+			
+			// aapt resource value: 0x7f070085
+			public const int buttonSignupSubmit = 2131165317;
+			
+			// aapt resource value: 0x7f070086
+			public const int buttonStartSignin = 2131165318;
+			
+			// aapt resource value: 0x7f070084
+			public const int buttonStartSignup = 2131165316;
+			
+			// aapt resource value: 0x7f070074
+			public const int cancel_action = 2131165300;
 			
 			// aapt resource value: 0x7f07002b
 			public const int center = 2131165227;
@@ -1936,8 +1945,8 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f070052
 			public const int checkbox = 2131165266;
 			
-			// aapt resource value: 0x7f070079
-			public const int chronometer = 2131165305;
+			// aapt resource value: 0x7f07007a
+			public const int chronometer = 2131165306;
 			
 			// aapt resource value: 0x7f070033
 			public const int clip_horizontal = 2131165235;
@@ -1981,11 +1990,11 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f07000e
 			public const int disableHome = 2131165198;
 			
-			// aapt resource value: 0x7f070080
-			public const int editTextPassword = 2131165312;
+			// aapt resource value: 0x7f070081
+			public const int editTextPassword = 2131165313;
 			
-			// aapt resource value: 0x7f07007f
-			public const int editTextUsername = 2131165311;
+			// aapt resource value: 0x7f070080
+			public const int editTextUsername = 2131165312;
 			
 			// aapt resource value: 0x7f07005c
 			public const int edit_query = 2131165276;
@@ -1993,8 +2002,8 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f07001c
 			public const int end = 2131165212;
 			
-			// aapt resource value: 0x7f07007e
-			public const int end_padder = 2131165310;
+			// aapt resource value: 0x7f07007f
+			public const int end_padder = 2131165311;
 			
 			// aapt resource value: 0x7f070023
 			public const int enterAlways = 2131165219;
@@ -2038,8 +2047,8 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f07003f
 			public const int image = 2131165247;
 			
-			// aapt resource value: 0x7f07007d
-			public const int info = 2131165309;
+			// aapt resource value: 0x7f07007e
+			public const int info = 2131165310;
 			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
@@ -2047,11 +2056,11 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f07002f
 			public const int left = 2131165231;
 			
-			// aapt resource value: 0x7f070077
-			public const int line1 = 2131165303;
+			// aapt resource value: 0x7f070078
+			public const int line1 = 2131165304;
 			
-			// aapt resource value: 0x7f07007b
-			public const int line3 = 2131165307;
+			// aapt resource value: 0x7f07007c
+			public const int line3 = 2131165308;
 			
 			// aapt resource value: 0x7f07000b
 			public const int listMode = 2131165195;
@@ -2059,8 +2068,8 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f070041
 			public const int list_item = 2131165249;
 			
-			// aapt resource value: 0x7f070075
-			public const int media_actions = 2131165301;
+			// aapt resource value: 0x7f070076
+			public const int media_actions = 2131165302;
 			
 			// aapt resource value: 0x7f07001d
 			public const int middle = 2131165213;
@@ -2194,8 +2203,8 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f070031
 			public const int start = 2131165233;
 			
-			// aapt resource value: 0x7f070074
-			public const int status_bar_latest_event_content = 2131165300;
+			// aapt resource value: 0x7f070075
+			public const int status_bar_latest_event_content = 2131165301;
 			
 			// aapt resource value: 0x7f070065
 			public const int submit_area = 2131165285;
@@ -2203,17 +2212,17 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f07000d
 			public const int tabMode = 2131165197;
 			
-			// aapt resource value: 0x7f07007c
-			public const int text = 2131165308;
+			// aapt resource value: 0x7f07007d
+			public const int text = 2131165309;
 			
-			// aapt resource value: 0x7f07007a
-			public const int text2 = 2131165306;
+			// aapt resource value: 0x7f07007b
+			public const int text2 = 2131165307;
 			
 			// aapt resource value: 0x7f07004d
 			public const int textSpacerNoButtons = 2131165261;
 			
-			// aapt resource value: 0x7f070078
-			public const int time = 2131165304;
+			// aapt resource value: 0x7f070079
+			public const int time = 2131165305;
 			
 			// aapt resource value: 0x7f070043
 			public const int title = 2131165251;
@@ -3045,6 +3054,9 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f0a0140
 			public const int Base_Widget_Design_TabLayout = 2131362112;
 			
+			// aapt resource value: 0x7f0a015c
+			public const int Button = 2131362140;
+			
 			// aapt resource value: 0x7f0a0017
 			public const int Platform_AppCompat = 2131361815;
 			
@@ -3393,11 +3405,17 @@ namespace ThriftPay.Mobile.Droid
 			// aapt resource value: 0x7f0a0157
 			public const int ThriftPayTheme = 2131362135;
 			
-			// aapt resource value: 0x7f0a0158
-			public const int ThriftPayTheme_Base = 2131362136;
-			
 			// aapt resource value: 0x7f0a0159
-			public const int ThriftPayTheme_Splash = 2131362137;
+			public const int ThriftPayTheme_Base = 2131362137;
+			
+			// aapt resource value: 0x7f0a015a
+			public const int ThriftPayTheme_Base_NoActionBar = 2131362138;
+			
+			// aapt resource value: 0x7f0a0158
+			public const int ThriftPayTheme_NoActionBar = 2131362136;
+			
+			// aapt resource value: 0x7f0a015b
+			public const int ThriftPayTheme_Splash = 2131362139;
 			
 			// aapt resource value: 0x7f0a00f8
 			public const int Widget_AppCompat_ActionBar = 2131362040;

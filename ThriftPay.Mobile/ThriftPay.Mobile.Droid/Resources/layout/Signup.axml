@@ -3,23 +3,40 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText
+  <RelativeLayout
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextUsername" />
-    <EditText
-        android:inputType="numberPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextPassword" />
+        android:layout_height="match_parent"
+        android:padding="15dp">
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/editTextUsername"
+          android:inputType="textEmailAddress"
+          android:hint="Username" />
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/editTextPassword"
+          android:inputType="textPassword"
+          android:imeOptions="actionDone"
+          android:hint="Password" />
+      <Button
+          android:text="Sign up"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/buttonSignupSubmit" />
+    </LinearLayout>
     <Button
-        android:text="Sign Up"
+        android:text="Already have an account? Sign in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonSignupSubmit" />
-    <Button
-        android:text="Sign In"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:id="@+id/buttonStartSignin" />
+  </RelativeLayout>
 </LinearLayout>

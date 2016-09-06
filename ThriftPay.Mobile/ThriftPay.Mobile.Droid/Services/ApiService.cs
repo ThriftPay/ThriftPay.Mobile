@@ -24,7 +24,7 @@ namespace ThriftPay.Mobile.Droid.Services
         private HttpUtility HttpUtility;
         private Context Context;
 
-        private AuthService AuthService;
+        private AccountService AccountService;
         private string BaseUrl;
         private string ApiVersion;
 
@@ -42,13 +42,13 @@ namespace ThriftPay.Mobile.Droid.Services
             return baseUrl + url;
         }
 
-        public ApiService(HttpUtility httpUtility, Context context, AuthService authService)
+        public ApiService(HttpUtility httpUtility, Context context, AccountService accountService)
         {
             Log.Debug(LOG_TAG, "Initializing ApiService.");
 
             this.HttpUtility = httpUtility;
             this.Context = context;
-            this.AuthService = authService;
+            this.AccountService = accountService;
 
             this.BaseUrl = Context.GetString(Resource.String.api_base_url);
             this.ApiVersion = Context.GetString(Resource.String.api_version);
@@ -84,7 +84,7 @@ namespace ThriftPay.Mobile.Droid.Services
 
             options.Headers.Add("Content-Type", "application/json");
 
-            var accessToken = this.AuthService.GetAccessToken();
+            var accessToken = this.AccountService.GetAccessToken();
 
             if (!string.IsNullOrEmpty(accessToken))
             {
@@ -99,25 +99,27 @@ namespace ThriftPay.Mobile.Droid.Services
             {
                 Log.Debug(LOG_TAG, $"Unauthorized request. Access token may have expired.");
 
-                var refreshToken = this.AuthService.GetRefreshToken();
-
-                if (!string.IsNullOrEmpty(refreshToken))
+                lock (this.AccountService)
                 {
-                    Log.Debug(LOG_TAG, $"Attempting to refresh the access token.");
+                    var refreshToken = this.AccountService.GetRefreshToken();
 
-                    this.AuthService.RefreshTokenAsync();
-
-                    accessToken = this.AuthService.GetAccessToken();
-
-                    if (!string.IsNullOrEmpty(accessToken))
+                    if (!string.IsNullOrEmpty(refreshToken))
                     {
-                        Log.Debug(LOG_TAG, $"Retrying the request with 'Authorization' header 'Bearer {accessToken}'.");
+                        Log.Debug(LOG_TAG, $"Attempting to refresh the access token.");
 
-                        options.Headers.Add("Authorization", $"Bearer {accessToken}");
-
-                        return await this.HttpUtility.RequestAsync(options);
+                        this.AccountService.RefreshTokenAsync();
                     }
+                }
 
+                accessToken = this.AccountService.GetAccessToken();
+
+                if (!string.IsNullOrEmpty(accessToken))
+                {
+                    Log.Debug(LOG_TAG, $"Retrying the request with 'Authorization' header 'Bearer {accessToken}'.");
+
+                    options.Headers.Add("Authorization", $"Bearer {accessToken}");
+
+                    return await this.HttpUtility.RequestAsync(options);
                 }
             }
 

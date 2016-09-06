@@ -33,13 +33,13 @@ namespace ThriftPay.Mobile.Droid
             var builder = new ContainerBuilder();
 
             var httpUtility = new HttpUtility();
-            var authService = new AuthService(httpUtility, this.ApplicationContext);
-            var apiService = new ApiService(httpUtility, this.ApplicationContext, authService);
+            var accountService = new AccountService(httpUtility, this.ApplicationContext);
+            var apiService = new ApiService(httpUtility, this.ApplicationContext, accountService);
             var userService = new UserService(apiService, this.ApplicationContext);
 
             builder.RegisterInstance(this.ApplicationContext).As<Context>();
             builder.RegisterInstance(httpUtility).As<HttpUtility>();
-            builder.RegisterInstance(authService).As<AuthService>();
+            builder.RegisterInstance(accountService).As<AccountService>();
             builder.RegisterInstance(apiService).As<ApiService>();
             builder.RegisterInstance(userService).As<UserService>();
 

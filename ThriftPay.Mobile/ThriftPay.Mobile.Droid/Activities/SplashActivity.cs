@@ -26,9 +26,9 @@ namespace ThriftPay.Mobile.Droid.Activities
             await Task.Factory.StartNew(() => {
 
                 var context = App.Container.Resolve<Context>();
-                var authService = App.Container.Resolve<AuthService>();
+                var accountService = App.Container.Resolve<AccountService>();
 
-                if(authService.IsSignedIn)
+                if(accountService.IsSignedIn)
                 {
                     StartActivity(new Intent(context, typeof(MainActivity)));
                 }

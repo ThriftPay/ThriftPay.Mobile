@@ -93,7 +93,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\ApiException.cs" />
     <Compile Include="Services\AuthenticationException.cs" />
-    <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Utilities\HttpOptions.cs" />

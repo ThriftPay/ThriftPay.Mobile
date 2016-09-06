@@ -6,4 +6,5 @@
   <color name="launchStatusBar">#3967d1</color>
   <color name="window_background">#F5F5F5</color>
   <color name="tableSectionHeaderText">#50bfe9</color>
+  <color name="white">#FFFFFF</color>
 </resources>

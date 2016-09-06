@@ -13,11 +13,13 @@ using Android;
 using Autofac;
 using ThriftPay.Mobile.Droid.Services;
 using Android.Util;
+using Android.Support.V7.App;
+using Android.Support.Design.Widget;
 
 namespace ThriftPay.Mobile.Droid.Activities
 {
-    [Activity(Label = "Sign in")]
-    class SigninActivity : Activity
+    [Activity(Label = "Sign in", Theme = "@style/ThriftPayTheme", Icon = "@drawable/icon")]
+    class SigninActivity : AppCompatActivity
     {
         const string LOG_TAG = "SigninActivity";
 
@@ -25,7 +27,7 @@ namespace ThriftPay.Mobile.Droid.Activities
         {
             base.OnCreate(bundle);
 
-            var authService = App.Container.Resolve<AuthService>();
+            var accountService = App.Container.Resolve<AccountService>();
 
             SetContentView(Resource.Layout.Signin);
 
@@ -54,7 +56,7 @@ namespace ThriftPay.Mobile.Droid.Activities
             {
                 try
                 {
-                    await authService.GetTokenAsync(editTextUsername.Text, editTextPassword.Text);
+                    await accountService.GetTokenAsync(editTextUsername.Text, editTextPassword.Text);
 
                     StartActivity(typeof(MainActivity));
 

@@ -9,7 +9,7 @@ using System;
 
 namespace ThriftPay.Mobile.Droid.Services
 {
-    public class AuthService
+    public class AccountService
     {
         const string LOG_TAG = "AuthService";
         const string AUTH_PREFERENCES = "Auth";
@@ -29,7 +29,7 @@ namespace ThriftPay.Mobile.Droid.Services
             }
         }
 
-        public AuthService(HttpUtility httpUtility, Context context)
+        public AccountService(HttpUtility httpUtility, Context context)
         {
             Log.Debug(LOG_TAG, "Initializing AuthService.");
 
@@ -263,6 +263,17 @@ namespace ThriftPay.Mobile.Droid.Services
             var accessToken = preferences.GetString("refresh_token", null);
 
             return accessToken;
+        }
+
+        public Task<bool> SignoutAsync()
+        {
+            var editor = this.GetAuthPreferences().Edit();
+
+            editor.PutString("access_token", null);
+            editor.PutString("refresh_token", null);
+            editor.PutString("id_token", null);
+
+            return Task.FromResult<bool>(editor.Commit());
         }
 
         protected ISharedPreferences GetAuthPreferences()
